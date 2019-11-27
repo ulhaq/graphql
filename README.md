@@ -208,3 +208,14 @@ We can summarise the similarities and differences between the two in the followi
  * In REST, the shape and size of the resource is determined by the server. In GraphQL, the server declares what resources are available, and the client asks for what it needs at the time.
  * In GraphQL, you can traverse from the entry point to related data, following relationships defined in the schema, in a single request. In REST, you have to call multiple endpoints to fetch related resources.
  * In REST, you specify a write by changing the HTTP verb from GET to something else like POST. In GraphQL, you change the `query` keyword to `mutation` in the query.
+
+ # Literature List
+ We have used the following resources for this blog enrty:
+
+* https://graphql.org/learn/schema/
+* https://graphql.org/learn/queries/
+* https://graphql.org/learn/serving-over-http/
+* https://www.howtographql.com/graphql-js/3-a-simple-mutation/
+* https://medium.com/@camachojuan_18475/graphql-solving-rests-problems-9a78820aeff
+* https://blog.apollographql.com/graphql-vs-rest-5d425123e34b
+* https://www.tutorialspoint.com/graphql/graphql_schema.htm
