@@ -1,9 +1,9 @@
 # Abstract
-Handling data using the RESTful architecture can become challenging in big applications. This is because, in RESTful, the client must work with many endpoints with a predefined data structure. That typically leads to over fetching or under fetching data, which of course affect the performance.  
-Many endpoints mean many network calls and that leads to bad performance. Likewise, predefined data structures mean getting undesired data or missing desired data and that leads to bad performance. And no doubt, performance means a lot, especially for applications with many users and many integrations to 3rd party software.  
+Handling data using the RESTful architecture can become challenging in big applications. This is because, in RESTful, the client must work with many endpoints with a predefined data structure. That typically leads to over fetching or under fetching data, which of course affect the performance.  <br/>
+Many endpoints mean many network calls and that leads to bad performance. Likewise, predefined data structures mean getting undesired data or missing desired data and that leads to bad performance. And no doubt, performance means a lot, especially for applications with many users and many integrations to 3rd party software.  <br/>
 GraphQL is a language, which solves many challenges of the RESTful architecture.  
 Firstly, it exposes only one endpoint for all entities.
-Secondly, the data and its structure are not predefined, rather the client defines what data it wants and how the structure should be.  
+Secondly, the data and its structure are not predefined, rather the client defines what data it wants and how the structure should be.  <br/>
 Using this architecture, we achieve better performance due to the reduced number of network calls. And also, we ourselves specify the data we need, which reduces the unnecessary data transferring.
  
 # Introduction
