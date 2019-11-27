@@ -19,8 +19,8 @@ Likewise, `Mutation` is also a `type` which is used for the `CUD` in `CRUD`.
 Hence, the `Query` can roughly be compared to `GET` and `Mutation` can roughly be compared to `POST`, `PUT`, `PATCH` and `DELETE` of the RESTful approach.  
 However, you will soon see, that we only have one endpoint for both `Query` and `Mutation` operations in GraphQL.  
 <br/>
-> In this blog, we will be comparing the GraphQL approach with the RESTful approach and understanding the pros of GraphQL.
-More precisely, we will look at the differences between the data structure and the exposure of endpoints in both GraphQL and RESTful.
+> **In this blog, we will be comparing the GraphQL approach with the RESTful approach and understanding the pros of GraphQL.
+More precisely, we will look at the differences between the data structure and the exposure of endpoints in both GraphQL and RESTful.**
  
 # The Driving School Software
 Some time ago, I had to build a system for driving schools which should be accessible from both desktop and mobile devices. The concept was to make schools able to organise their teachers, students, teams, lectures and other data.  
