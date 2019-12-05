@@ -1,24 +1,23 @@
-# UFO
+# A deeper look into GraphQL
 Group Members:  
-Muhammad Umar Ulhaq  
-Hassan Raza Hussain  
-Mohammed Murad Hossain Sarker  
+Muhammad Umar Ulhaq (cph-mu47@cphbusiness.dk)  
+Hassan Raza Hussain (cph-hh266@cphbusiness.dk)  
+Mohammed Murad Hossain Sarker (cph-ms809@cphbusiness.dk)  
 
 # Abstract
-Handling data using the RESTful architecture can become challenging in big applications. This is because, in RESTful, the client must work with many endpoints with a predefined data structure. That typically leads to over fetching or under fetching data, which of course affect the performance.  
+Handling data using the RESTful architecture can become challenging in big applications. This is because, in RESTful, the client must work with many endpoints with a predefined data structure. That typically leads to over fetching or under fetching data.  
 <br/>
-Many endpoints mean many network calls and that leads to bad performance. Likewise, predefined data structures mean getting undesired data or missing desired data and that leads to bad performance. And no doubt, performance means a lot, especially for applications with many users and many integrations to 3rd party software.  
+Many endpoints mean many network calls. Likewise, predefined data structures mean getting undesired data or missing desired data.  
 <br/>
 GraphQL is a language, which solves many challenges of the RESTful architecture.  
-Firstly, it exposes only one endpoint for all entities.
+Firstly, it exposes only one endpoint for all resources.
 Secondly, the data and its structure are not predefined, rather the client defines what data it wants and how the structure should be.  
 <br/>
-Using this architecture, we achieve better performance due to the reduced number of network calls. And also, we ourselves specify the data we need, which reduces the unnecessary data transferring.
+Using this architecture we achieve better overview of our endpoint - we only have one endpoint. And also, we ourselves specify the data we need, which reduces the unnecessary data transferring.
  
 # Introduction
 GraphQL is a query language for server-side runtime and query execution. GraphQL is a new API standard that was developed and open sourced by Facebook.  
-It is not a specific technology but can implement it in any language.
-In GraphQL we have four core components, namely the `Schema`, `Query` and `Mutation`.  
+We will be looking at GraphQL's main three core components, namely the `Schema`, `Query` and `Mutation`.  
 The `Schema` is at the core of any GraphQL server implementation and it is language independent. It describes the functionality available to the client applications that connect to it.  
 The `Query` is a `type` which is used for the `R` in `CRUD`.
 Likewise, `Mutation` is also a `type` which is used for the `CUD` in `CRUD`.  
@@ -29,11 +28,11 @@ However, you will soon see, that we only have one endpoint for both `Query` and 
 More precisely, we will look at the differences between the data structure and the exposure of endpoints in both GraphQL and RESTful.**
  
 # The Driving School Software
-Some time ago, I had to build a system for driving schools which should be accessible from both desktop and mobile devices. The concept was to make schools able to organise their teachers, students, teams, lectures and other data.  
+Some time ago, we had to build a system for driving schools which should be accessible from both desktop and mobile devices. The concept was to make schools able to organise their teachers, students, teams, lectures and other data.  
  
 We realised that the system might become very complex, therefore we chose to use GraphQL rather than the RESTful approach.  
  
-The main idea of GraphQL is, as mentioned earlier, that we only have one endpoint for all our entities. Moreover, the result data is defined by the client - according to the `Schema` mentioned earlier - not the server.  
+The main idea of GraphQL is, as mentioned earlier, that we only have one endpoint for all our resources. Moreover, the result data is defined by the client - according to the `Schema` mentioned earlier - not the server.  
  
 First and foremost, let's look at the difference between the structure of endpoints for both RESTful and GraphQL.  
  
@@ -57,7 +56,8 @@ On the other hand, in GraphQL, we only have one single endpoint. It could possib
 `GET: /graphql?query=:query`
 Where `:query` is the actual query we want to process.  
  
-Of course, in the backend we have to make the endpoint available for the client. In our case, the schema with `student` and `teacher` for `Query` would be something like:
+Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, that part is out of the scope of this blog.
+In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
 type Student {
     id: ID
@@ -85,7 +85,7 @@ Here, we define the schema for adding a student to the system.
  
 In this blog, we will base our future examples on the schemas just defined.  
  
-Now, let's look at how we can retrieve the first name of a specific student with the first name of his teachers with a RESTful approach:
+Now, let's look at how we can retrieve the first name of a specific student and the first name of his teachers with a RESTful approach:
 ```
 GET: /students/5/
 ```
@@ -155,7 +155,7 @@ This will result in something like:
     }
 }
 ```
-Here, we only called the server once and the server only returned the data we intended to request. That of course has an effect on the performance.  
+Here, we only called the server once and the server only returned the data we intended to request.  
  
  
 Now, let's have a look at how we can write data using a RESTful approach. Firstly, we need to call the endpoint using `POST` - of course we also have to send a payload:
@@ -202,20 +202,14 @@ The following image, which does not have anything to do with the Driving School 
  
  
 # Conclusion:
-We would not say that GraphQL is a replacement of the RESTful approach but clearly it has some features that RESTful doesn't have. It makes joins, filtering, argument validation etc. much easier compared to RESTful.  
- 
-We can summarise the similarities and differences between the two in the following points:
-## Similarities
- * Both have the idea of a resource, and can specify IDs for those resources.
- * Both can return JSON data in the request.
- * Both have a way to differentiate if an API request is meant to read data or write it.
- 
-## Differences
- * In REST, the shape and size of the resource is determined by the server. In GraphQL, the server declares what resources are available, and the client asks for what it needs at the time.
- * In GraphQL, you can traverse from the entry point to related data, following relationships defined in the schema, in a single request. In REST, you have to call multiple endpoints to fetch related resources.
- * In REST, you specify a write by changing the HTTP verb from GET to something else like POST. In GraphQL, you change the `query` keyword to `mutation` in the query.
+We would not say that GraphQL is a replacement of the RESTful approach. Nevertheless, it clearly has some features that RESTful doesn't have.
+Firstly, GraphQL exposes only one single endpoint and that gives a better overview and also reduces the time spend on designing multiple endpoints.
+Secondly, you are able to define the data structure on the client side. And that means that the server only defines the resources that are available to the client, not the data's structure. Hence, you can control what exactly data you want and avoid over fetching and under fetching of data.
+Secondly, it makes things such as filtering much easier compared to RESTful.
+<br/>
+Even though this blog only focuses on the pros of GraphQL, with regards to data structure and exposure of endpoints, we would like to mention one huge benefit of GraphQL. It actually follows the fact that you are able to control what data you get from the endpoint. Imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead two useless data on different devices which would lead to increased bills for the common user.
 
- # Literature List
+ # Reference List
  We have used the following resources for this blog enrty:
 
 * https://graphql.org/learn/schema/
