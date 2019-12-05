@@ -203,8 +203,8 @@ The following image, which does not have anything to do with the Driving School 
 
 
 # Conclusion:
-We would not say that GraphQL is a replacement of the RESTful approach. Nevertheless, it clearly has some features that RESTful doesn't have.
-Firstly, GraphQL exposes only one single endpoint and that gives a better overview and also reduces the time spend on designing multiple endpoints.
+We would not say that GraphQL is a replacement of the RESTful approach. Nevertheless, it clearly has some features that RESTful doesn't have.  
+Firstly, GraphQL exposes only one single endpoint and that gives a better overview and also reduces the time spend on designing multiple endpoints.  
 Secondly, you are able to define the data structure on the client side. And that means that the server only defines the resources that are available to the client, not the data's structure. Hence, you can control what exactly data you want and avoid over fetching and under fetching of data.
 Secondly, it makes things such as filtering much easier compared to RESTful.  
 <br/>
