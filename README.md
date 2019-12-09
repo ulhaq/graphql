@@ -56,7 +56,7 @@ On the other hand, in GraphQL, we only have one single endpoint. It could possib
 `GET: /graphql?query=:query`
 Where `:query` is the actual query we want to process.  
 
-Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, that part is out of the scope of this blog.
+Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, that part is out of the scope of this blog, since we are only focusing on endpoints and data structure.
 In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
 type Student {
