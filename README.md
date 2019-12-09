@@ -60,17 +60,17 @@ Of course, in the backend, we have to code the business logic and make the endpo
 In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
 type Student {
-id: ID
-firstName: String
-lastName: String
-teachers: [Teacher]
+    id: ID
+    firstName: String
+    lastName: String
+    teachers: [Teacher]
 }
 
 type Teacher {
-id: ID
-firstName: String
-lastName: String
-students: [Student]
+    id: ID
+    firstName: String
+    lastName: String
+    students: [Student]
 }
 ```
 Here, we only describe the kind of data that is available. And the structure doesn’t tell us anything about how a client might fetch  those objects from our server.  
@@ -78,7 +78,7 @@ Here, we only describe the kind of data that is available. And the structure doe
 Likewise, we will define the `Mutation` schema for `student`:
 ```graphql
 type Mutation {
-addStudent(id: Int, firstNmae: String, lastName: String): String
+    addStudent(id: Int, firstNmae: String, lastName: String): String
 }
 ```
 Here, we define the schema for adding a student to the system.  
@@ -92,13 +92,13 @@ GET: /students/5/
 This will result in something like:
 ```json
 {
-"data": {
-"students": {
-"id": 5,
-"firstName": "John",
-"lastName": "Doe"
-}
-}
+    "data": {
+        "students": {
+            "id": 5,
+            "firstName": "John",
+            "lastName": "Doe"
+        }
+    }
 }
 ```
 Now we have to get the student’s teachers' first names:
@@ -108,22 +108,22 @@ GET: /students/5/teachers/
 This will result in something like:
 ```json
 {
-"data": {
-"teachers": [
-{
-"firstName": "Muhammad",
-"lastName": "Ibraheem"
-},
-{
-"firstName": "Jane",
-"lastName": "Doe"
-},
-{
-"firstName": "Michael",
-"lastName": "Jeffrey"
-}
-]
-}
+    "data": {
+        "teachers": [
+            {
+                "firstName": "Muhammad",
+                "lastName": "Ibraheem"
+            },
+            {
+                "firstName": "Jane",
+                "lastName": "Doe"
+            },
+            {
+                "firstName": "Michael",
+                "lastName": "Jeffrey"
+            }
+        ]
+    }
 }
 ```
 Firstly, as we just observed, we have to make at least two requests to the server.  
@@ -132,27 +132,27 @@ Secondly, we are actually getting data we didn't intend to request. Of course, w
 However, the same thing can be achieved using GraphQL as follows:
 ```graphql
 query {
-Student (id: 5) {
-firstName
-teachers () {
-firstName
-}
-}
+    Student (id: 5) {
+        firstName
+        teachers () {
+            firstName
+        }
+    }
 }
 ```
 This will result in something like:
 ```json
 {
-"data": {
-"Student": {
-"firstName": "John",
-"teachers": [
-{ "firstName": "Jane" },
-{ "firstName": "Michael" },
-{ "firstName": "Ibraheem" }
-]
-}
-}
+    "data": {
+        "Student": {
+            "firstName": "John",
+            "teachers": [
+                { "firstName": "Jane" },
+                { "firstName": "Michael" },
+                { "firstName": "Ibraheem" }
+            ]
+        }
+    }
 }
 ```
 Here, we only called the server once and the server only returned the data we intended to request - the user #5 and his teachers' firstname.  
@@ -166,11 +166,11 @@ HOST: myserver
 Content-Type:application/json
 Accept:application/json
 {
-"data": {
-"id": 423,
-"firstName": "Jack",
-"lastName": "Green",
-}
+    "data": {
+        "id": 423,
+        "firstName": "Jack",
+        "lastName": "Green",
+    }
 }
 ```
 We have created the student but the relation between the student and his teachers is not defined yet. To define the relation we can send a new request; that could be something like:
@@ -180,8 +180,9 @@ HOST: myserver
 Content-Type:application/json
 Accept:application/json
 {
-"data": {
-"teachersID": [8, 2, 3]
+    "data": {
+        "teachersID": [8, 2, 3]
+    }
 }
 ```
 This will create a relation between the newly created student and his teachers.  
@@ -189,8 +190,9 @@ This will create a relation between the newly created student and his teachers.
 The very same thing can be done seamlessly using GraphQL:
 ```graph
 mutation {
-addStudent(id: 423, firstName: "Jack", lastName: "Green", teachers: [8, 2, 3]) {
-firstName
+    addStudent(id: 423, firstName: "Jack", lastName: "Green", teachers: [8, 2, 3]) {
+        firstName
+    }
 }
 ```
 This single request to the server ensures that our new student is created in the system and he is associated - in the system - to his teachers correctly.  
