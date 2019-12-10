@@ -58,7 +58,7 @@ On the other hand, in GraphQL, we only have one single endpoint. It could possib
 `GET: /graphql?query=:query`
 Where `:query` is the actual query we want to process.  
 
-Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, the business logic part is out of the scope of this blog, since we are only focusing on endpoints and data structure.[^1]  
+Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, the business logic part is out of the scope of this blog, since we are only focusing on endpoints and data structure.<sup><a href="#fn1" id="fnref1">[1]</a></sup>  
 
 In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
@@ -215,6 +215,9 @@ Secondly, it makes things such as filtering much easier compared to RESTful.
 <br/>
 Even though this blog only focuses on the pros of GraphQL, with regards to data structure and exposure of endpoints, we would like to mention one huge benefit of GraphQL. It actually follows the fact that you are able to control what data you get from the endpoint. Imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead two useless data on different devices which would lead to increased bills for the common user.
 
+#Footnotes
+1. <span id="fn1">Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)</span>
+
 # Reference List
 We have used the following resources for this blog enrty:
 
@@ -228,4 +231,4 @@ We have used the following resources for this blog enrty:
 * https://flaviocopes.com/graphql-node-express/  
 
 
-[^1]: Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)
+[^1]: 
