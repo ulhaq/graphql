@@ -227,4 +227,4 @@ We have used the following resources for this blog enrty:
 * https://flaviocopes.com/graphql-node-express/  
 
 
-[^1]: Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)
+[1]: Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)
