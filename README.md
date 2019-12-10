@@ -3,6 +3,7 @@ Authors:
 Muhammad Umar Ulhaq (cph-mu47@cphbusiness.dk)  
 Hassan Raza Hussain (cph-hh266@cphbusiness.dk)  
 Mohammed Murad Hossain Sarker (cph-ms809@cphbusiness.dk)  
+10th December 2019
 
 # Abstract
 Handling data using the RESTful architecture can become challenging in big applications. This is because, in RESTful, the client must work with many endpoints with a predefined data structure. That typically leads to over fetching or under fetching data.  
@@ -22,9 +23,9 @@ The `Schema` is at the core of any GraphQL server implementation and it is langu
 The `Query` is a `type` which is used for the `R` in `CRUD`.
 Likewise, `Mutation` is also a `type` which is used for the `CUD` in `CRUD`.  
 Hence, the `Query` can roughly be compared to `GET` and `Mutation` can roughly be compared to `POST`, `PUT`, `PATCH` and `DELETE` of the RESTful approach.  
-However, you will soon see, that we only have one endpoint for both `Query` and `Mutation` operations in GraphQL.  
+You will soon see, that we only have one endpoint for both `Query` and `Mutation` operations in GraphQL.  
 <br/>
-> **In this blog, we will be comparing the GraphQL approach with the RESTful approach and understanding the pros of GraphQL.
+> **In this blog, we will compare the GraphQL approach with the RESTful approach and understanding the pros of GraphQL.
 More precisely, we will look at the differences between the data structure and the exposure of endpoints in both GraphQL and RESTful.**
 
 # The Driving School Software
@@ -32,11 +33,11 @@ Some time ago, we had to build a system for driving schools which should be acce
 
 We realised that the system might become very complex, therefore we chose to use GraphQL rather than the RESTful approach.  
 
-The main idea of GraphQL is, as mentioned earlier, that we only have one endpoint for all our resources. Moreover, the result data is defined by the client - according to the `Schema` mentioned earlier - not the server.  
+The main idea of GraphQL is, as mentioned earlier, that we only have one endpoint for all our resources. And the result data is defined by the client - according to the `Schema` mentioned earlier - not the server.  
 
 First and foremost, let's look at the difference between the structure of endpoints for both RESTful and GraphQL.  
 
-For example, for the above-mentioned system the structure of the endpoints with RESTFul could have been something like:
+For example, for the Driving System the structure of the endpoints with RESTFul could have been something like:
 ```
 GET: /teachers/
 GET: /teachers/:id
@@ -56,7 +57,7 @@ On the other hand, in GraphQL, we only have one single endpoint. It could possib
 `GET: /graphql?query=:query`
 Where `:query` is the actual query we want to process.  
 
-Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, that part is out of the scope of this blog, since we are only focusing on endpoints and data structure.
+Of course, in the backend, we have to code the business logic and make the endpoint available for the client. However, the business logic part is out of the scope of this blog, since we are only focusing on endpoints and data structure.[^1]
 In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
 type Student {
@@ -75,7 +76,7 @@ type Teacher {
 ```
 Here, we only describe the kind of data that is available. And the structure doesn’t tell us anything about how a client might fetch  those objects from our server.  
 
-Likewise, we will define the `Mutation` schema for `student`:
+Likewise, we have to define the `Mutation` schema for `student`:
 ```graphql
 type Mutation {
     addStudent(id: Int, firstNmae: String, lastName: String): String
@@ -85,7 +86,7 @@ Here, we define the schema for adding a student to the system.
 
 In this blog, we will base our future examples on the schemas just defined.  
 
-Now, let's look at how we can retrieve the first name of a specific student and the first name of his teachers with a RESTful approach:
+Let's look at how we can retrieve the first name of a specific student and the first name of his teachers with a RESTful approach:
 ```
 GET: /students/5/
 ```
@@ -101,7 +102,7 @@ This will result in something like:
     }
 }
 ```
-Now we have to get the student’s teachers' first names:
+We have to get the student’s teachers' first names:
 ```
 GET: /students/5/teachers/
 ```
@@ -155,10 +156,9 @@ This will result in something like:
     }
 }
 ```
-Here, we only called the server once and the server only returned the data we intended to request - the user #5 and his teachers' firstname.  
+With this approach, we only called the server once and the server only returned the data we intended to request - the user's first name and his teachers' first name.  
 
-
-Now, let's have a look at how we can write data using a RESTful approach.
+Let's have a look at how we can write data using a RESTful approach.
 Firstly, we need to call the endpoint using `POST` - of course we also have to send a payload:
 ```
 POST /students/ HTTP/1.1
@@ -187,7 +187,7 @@ Accept:application/json
 ```
 This will create a relation between the newly created student and his teachers.  
 
-The very same thing can be done seamlessly using GraphQL:
+The same thing can be done seamlessly using GraphQL:
 ```graph
 mutation {
     addStudent(id: 423, firstName: "Jack", lastName: "Green", teachers: [8, 2, 3]) {
@@ -195,9 +195,10 @@ mutation {
     }
 }
 ```
-This single request to the server ensures that our new student is created in the system and he is associated - in the system - to his teachers correctly.  
+This single request to the server ensures that our new student is created in the system and he is associated to his teachers correctly.  
 
-As we can see, the RESTful approach can quickly become complex, where as the GraphQL approach will remain with a simple and clear structure.  
+Hopefully you got the idea. The RESTful approach would become more complex in larger systems, where as the GraphQL approach remains with a simple and clear structure.
+Due to the required length of this blog post, we didn't present too complex examples, even though that might help in making the idea more clear.  
 
 The following image, which does not have anything to do with the Driving School Software, illustrates the interpretation of fetching resources with multiple REST roundtrips vs. one single GraphQL request.
 ![GraphQL vs RESTful](images/graphql-restful.png)  
@@ -222,3 +223,7 @@ We have used the following resources for this blog enrty:
 * https://medium.com/@camachojuan_18475/graphql-solving-rests-problems-9a78820aeff
 * https://blog.apollographql.com/graphql-vs-rest-5d425123e34b
 * https://www.tutorialspoint.com/graphql/graphql_schema.htm
+* https://flaviocopes.com/graphql-node-express/  
+
+
+[^1]: Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)
