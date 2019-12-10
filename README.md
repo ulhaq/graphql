@@ -228,4 +228,4 @@ We have used the following resources for this blog enrty:
 * https://flaviocopes.com/graphql-node-express/  
 
 # Footnotes
-1. <span id="fn1">Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)</span>
+1. <span id="fn1">Want to know more about GraphQL business logic have a look at the following <a href="https://flaviocopes.com/graphql-node-express/" target="_blank">blog post.</a></span>
