@@ -215,9 +215,6 @@ Secondly, it makes things such as filtering much easier compared to RESTful.
 <br/>
 Even though this blog only focuses on the pros of GraphQL, with regards to data structure and exposure of endpoints, we would like to mention one huge benefit of GraphQL. It actually follows the fact that you are able to control what data you get from the endpoint. Imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead two useless data on different devices which would lead to increased bills for the common user.
 
-# Footnotes
-1. <span id="fn1">Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)</span>
-
 # Reference List
 We have used the following resources for this blog enrty:
 
@@ -229,3 +226,6 @@ We have used the following resources for this blog enrty:
 * https://blog.apollographql.com/graphql-vs-rest-5d425123e34b
 * https://www.tutorialspoint.com/graphql/graphql_schema.htm
 * https://flaviocopes.com/graphql-node-express/  
+
+# Footnotes
+1. <span id="fn1">Want to know more about GraphQL business logic have a look at the following [blog post](https://flaviocopes.com/graphql-node-express/)</span>
