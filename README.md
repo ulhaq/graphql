@@ -2,7 +2,8 @@
 Authors:  
 Muhammad Umar Ulhaq (cph-mu47@cphbusiness.dk)  
 Hassan Raza Hussain (cph-hh266@cphbusiness.dk)  
-Mohammed Murad Hossain Sarker (cph-ms809@cphbusiness.dk)  
+Mohammed Murad Hossain Sarker (cph-ms809@cphbusiness.dk) 
+ 
 10th December 2019
 
 # Abstract
