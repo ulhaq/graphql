@@ -60,7 +60,7 @@ On the other hand, in GraphQL, we only have one single endpoint. It could possib
 Of course, in the backend, we have to code the business logic and make the endpoint available for the client.  
 However, the business logic part is out of the scope of this blog, since we are only focusing on endpoints and data structure.<sup><a href="#fn1" id="fnref1">[1]</a></sup>  
 
-In our case, the schema with student and teacher for Query would be something like:
+In our case, the schema with `student` and `teacher` for `Query` would be something like:
 ```graphql
 type Student {
     id: ID
@@ -78,7 +78,7 @@ type Teacher {
 ```
 Here, we only describe the kind of data that is available to the client. And the structure doesn’t tell us anything about how a client might fetch those objects from our server.  
 
-Likewise, we can define the Mutation schema for `student`:
+Likewise, we can define the `Mutation` schema for `student`:
 ```graphql
 type Mutation {
     addStudent(id: Int, firstNmae: String, lastName: String): String
@@ -209,9 +209,8 @@ The following image, which does not have anything to do with the Driving School 
 # Conclusion:
 We would not say that GraphQL is a replacement of the RESTful approach. Nevertheless, it clearly has some features that RESTful doesn't have.  
 Firstly, GraphQL exposes only one single endpoint and that gives a better overview and also reduces the time spent on designing multiple endpoints.  
-Secondly, you are able to define the data structure on the client side. And that means that the server must only define the resources that are available to the client, not the data's structure. Hence, you can control what exactly data you want and avoid over fetching and under fetching of data.  
+Secondly, you are able to define the data structure on the client side. And that means that the server must only define the resources that are available to the client, not the data's structure. Hence, you can control what exactly data you want and avoid over fetching and under fetching of data. Imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead to transferring useless data on different devices which would lead to increased internet bills for the end user.  
 Thirdly, it makes things such as filtering much easier compared to RESTful.  
-Fourthly, imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead two transferring useless data on different devices which would lead to increased internet bills for the common user.
 
 # Reference List
 We have used the following resources for this blog post:
