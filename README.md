@@ -206,7 +206,7 @@ The following image, which does not have anything to do with the Driving School 
 ![GraphQL vs RESTful](images/graphql-restful.png)  
 *Image source: https://blog.apollographql.com/graphql-vs-rest-5d425123e34b*
 
-# Conclusion:
+# Conclusion
 We would not say that GraphQL is a replacement of the RESTful approach. Nevertheless, it clearly has some features that RESTful doesn't have.  
 Firstly, GraphQL exposes only one single endpoint and that gives a better overview and also reduces the time spent on designing multiple endpoints.  
 Secondly, you are able to define the data structure on the client side. And that means that the server must only define the resources that are available to the client, not the data's structure. Hence, you can control what exactly data you want and avoid over fetching and under fetching of data. Imagine a system which communicates with desktop devices and mobile devices, where the desktop devices require data that mobile devices don't need and vice versa. That would lead to transferring useless data on different devices which would lead to increased internet bills for the end user.  
