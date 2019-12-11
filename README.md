@@ -1,4 +1,4 @@
-# A deeper look into GraphQL
+# A look into GraphQL
 Authors:  
 Muhammad Umar Ulhaq (cph-mu47@cphbusiness.dk)  
 Hassan Raza Hussain (cph-hh266@cphbusiness.dk)  
